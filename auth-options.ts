@@ -39,7 +39,7 @@ export const authOptions: NextAuthOptions = {
                 user: "admin",
                 tel: "admin",
                 role: "admin",
-                hashedPassword: await bcrypt.hash("Super@dm!n", 12),
+                hashedPassword: await bcrypt.hash(process.env.NEXTAUTH_SUPERADMINPASSWORD as string, 12),
                 sectionId: createAdminSection.id
               },
               select: {
