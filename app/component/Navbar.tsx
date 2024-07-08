@@ -67,7 +67,7 @@ const DesktopNavbar = ({ session }: NavbarProps) => {
                 icon={<UserIcon className="w-5 h-5" />}
                 items={[
                   { href: "/user/profile", label: "โปรไฟล์" },
-                  { href: "/api/auth/signout", label: "Logout" },
+                  { href: session?"/user/out":"/user/profile", label: session?"Logout":"Login" },
                 ]} 
               />
             </div>

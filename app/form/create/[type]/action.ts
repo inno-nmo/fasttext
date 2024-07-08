@@ -12,7 +12,7 @@ const prisma = new PrismaClient();
 export async function addDocument(prevState: {message: string, err: boolean}, formData: FormData) {
   const session = await getServerSession(authOptions)
   if(!session || !session.pea){
-      redirect("/api/auth/signin")
+      redirect("/user/profile")
   }
 
   const type = formData.get("type")?.toString()

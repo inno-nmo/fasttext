@@ -215,7 +215,7 @@ export async function setNewStatus(formData:FormData):Promise<{err:boolean,messa
   
   const session = await getServerSession(authOptions)
   if(!session || !session.pea){
-    redirect("/api/auth/signin")
+    redirect("/user/profile")
   }
 
   const status = formData.get("status")?.toString()

@@ -7,7 +7,7 @@ import FormDocument from "./form"
 export default async function Page({ params }: { params: { id: string } }) {
     const session = await getServerSession(authOptions)
     if(!session || !session.pea){
-        redirect("/api/auth/signin")
+        redirect("/user/profile")
     }
 
     const doc = await prisma.document.findFirst({

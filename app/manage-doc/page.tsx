@@ -7,7 +7,7 @@ import { StarIcon, DocumentIcon } from "@heroicons/react/24/outline";
 export default async function Page() {
   const session = await getServerSession(authOptions);
   if (!session || !session.pea) {
-    redirect("/api/auth/signin");
+    redirect("/user/profile");
   }
 
   return (

@@ -6,7 +6,7 @@ import ManageDocs from "./manage-docs"
 export default async function Page() {
   const session = await getServerSession(authOptions)
     if(!session || !session.pea){
-        redirect("/api/auth/signin")
+        redirect("/user/profile")
     }
     if(!["admin","checker"].includes(session.pea.role)){
         redirect("/")

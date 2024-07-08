@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 export default async function Page() {
     const session = await getServerSession(authOptions)
     if(!session || !session.pea){
-        redirect("/api/auth/signin")
+        redirect("/user/profile")
     }
     const documentsWithStatus = await getDocsWithLatestStatusAndUserId("รอเอกสารต้นฉบับ",session.pea.id)
     return(
