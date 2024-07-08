@@ -40,7 +40,7 @@ export default function Profile({session,sections}:{session:Session,sections:Sec
                 </div>
                 <div className="form-group">
                     <label className="block text-sm font-medium text-gray-700" htmlFor="tel">หมายเลขโทรศัพท์</label>
-                    <input className="mt-1 block w-full p-2 border border-gray-300 rounded-md" type="text" name="name" defaultValue={session.pea?.tel}/>
+                    <input className="mt-1 block w-full p-2 border border-gray-300 rounded-md" type="text" name="tel" defaultValue={session.pea?.tel}/>
                 </div>
                 <div className="form-group">
                 <label  htmlFor="sectionId" className="block text-sm font-medium text-gray-700">สังกัด</label>

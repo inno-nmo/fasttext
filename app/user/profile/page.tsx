@@ -4,11 +4,16 @@ import Link from "next/link"
 import { redirect } from "next/navigation"
 import Profile from "./profile"
 import prisma from "@/lib/prisma"
+import SignIn from "./signin"
 
 export default async function Page(){
     const session = await getServerSession(authOptions)
     if(!session || !session.pea){
-        redirect("/api/auth/signin")
+        return (
+            <div>
+                <SignIn/>
+            </div>
+        )
     }
     const sections = await prisma.section.findMany({
         select: {
