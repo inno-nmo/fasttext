@@ -1,18 +1,11 @@
-export function dateFormat(dateTime:Date) {
-  return dateTime.toLocaleString("en-GB", {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false
-  }).replace(',', '');
+import moment from 'moment-timezone';
+
+export function dateFormat(dateTime: Date) {
+  const thailandTime = moment(dateTime).tz('Asia/Bangkok');
+  return thailandTime.format('DD/MM/YYYY HH:mm');
 }
 
-// ฟังก์ชัน dateInputFormat
-export function dateInputFormat(date:Date) {
-  let month = (date.getMonth() + 1).toString().padStart(2, '0');
-  let day = date.getDate().toString().padStart(2, '0');
-  let year = date.getFullYear();
-  return `${year}-${month}-${day}`;
+export function dateInputFormat(date: Date) {
+  const thailandTime = moment(date).tz('Asia/Bangkok');
+  return thailandTime.format('YYYY-MM-DD');
 }
