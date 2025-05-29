@@ -9,10 +9,10 @@ export default async function Page() {
     if(!session || !session.pea){
         redirect("/user/profile")
     }
-    const documentsWithStatus = await getDocsWithLatestStatusAndUserId("เอกสารส่งคืน/ตีกลับ",session.pea.id)
+    const documentsWithStatus = await getDocsWithLatestStatusAndUserId("เอกสารส่งคืน/แก้ไข",session.pea.id)
     return(
         <div className="flex flex-col gap-3">
-            <h1>เอกสารส่งคืน/ตีกลับ</h1>
+            <h1>เอกสารส่งคืน/แก้ไข</h1>
             <h4>จำนวน {documentsWithStatus.length} ฉบับ</h4>
             <DocumentTable session={session} documentsWithStatus={documentsWithStatus}/>
         </div>

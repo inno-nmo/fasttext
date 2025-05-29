@@ -30,7 +30,7 @@ export default function DocumentTable({
   );
 
   const ActionCell: React.FC<{ row: DocumentWithStatus }> = ({ row }) => {
-    if (row.status.length !== 0 && row.status[0].name === "เอกสารส่งคืน/ตีกลับ" &&
+    if (row.status.length !== 0 && row.status[0].name === "เอกสารส่งคืน/แก้ไข" &&
       session.pea?.user === row.user.user) {
       return (
         <Link

@@ -4,6 +4,7 @@ import { authOptions } from "@/auth-options"
 import { getServerSession } from "next-auth"
 import { redirect } from "next/navigation"
 import prisma from "@/lib/prisma"
+import { getWebexPeople, sendWebexMessage } from "@/lib/webex"
 
 
 
@@ -39,6 +40,33 @@ export async function changeStatus(preverse:{err:boolean,message:string},formDat
                 updatedByUserId: session.pea.id
             }
         })
+        if(status.name == 'เสร็จสิ้นรอเบิกจ่าย/รอโอนเงิน'){
+            //TODO: ส่งแจ้งเตือน Webex
+            try {
+                const document = await prisma.document.findFirst({
+                    where: {
+                        id: status.documentId
+                    }
+                })
+
+                const owner = await prisma.user.findFirst({
+                    where: {
+                        id: document?.userId
+                    }
+                })
+
+                const {items: people} = await getWebexPeople(owner?.name || "")
+                if(people.length > 0 && people[0].displayName == session.pea.name){
+                    const text = `เอกสารเลขที่ ${document?.docNo}/${document?.year} ${document?.name} จำนวนเงิน ${document?.amount} บาท ดำเนินการเสร็จสิ้น`
+                    await sendWebexMessage({
+                        personalId: people[0].id,
+                        text: text})
+                }
+            }
+            catch(e){
+                console.log(e)
+            }
+        }
         await prisma.$disconnect()
         return {
             err: false,

@@ -52,7 +52,7 @@ export const getColumns = (session: Session) => [
           ดูประวัติ เอกสาร
         </Link>
         {row.status.length !== 0 &&
-          row.status[0].name === "เอกสารส่งคืน/ตีกลับ" &&
+          row.status[0].name === "เอกสารส่งคืน/แก้ไข" &&
           session.pea?.user === row.user.user && (
             <Link href={`/form/edit/${row.id}`}>แก้ไขเอกสาร</Link>
           )}

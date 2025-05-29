@@ -47,7 +47,7 @@ export async function editDocument(prevState: {message: string, err: boolean}, f
     }
 })
 
-  if(!findDoc || findDoc.status.length == 0 || findDoc.status[0].name != "เอกสารส่งคืน/ตีกลับ" || findDoc.user.id != session.pea.id ){
+  if(!findDoc || findDoc.status.length == 0 || findDoc.status[0].name != "เอกสารส่งคืน/แก้ไข" || findDoc.user.id != session.pea.id ){
     return {
         err: true,
         message: "ไม่พบเอกสาร หรือเอกสารนี้ไม่สามารถแก้ไขได้"

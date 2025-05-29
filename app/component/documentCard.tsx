@@ -78,7 +78,7 @@ const DocumentCard = ({
             : "ดูประวัติเอกสาร"}
         </Link>
         {document.status.length !== 0 &&
-          document.status[0].name === "เอกสารส่งคืน/ตีกลับ" &&
+          document.status[0].name === "เอกสารส่งคืน/แก้ไข" &&
           session.pea?.user === document.user.user && (
             <Link
               href={`/form/edit/${document.id}`}

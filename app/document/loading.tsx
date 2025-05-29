@@ -21,7 +21,7 @@ export default function Loading(){
         <p className="text-4xl mr-4">📤</p>
         <Link href="/user/returned-docs">
           <div className="text-left">
-            <h2 className="text-lg font-bold">เอกสารส่งคืน/ตีกลับ</h2>
+            <h2 className="text-lg font-bold">เอกสารส่งคืน/แก้ไข</h2>
             <p>จำนวน {'  '} ฉบับ</p>
           </div>
         </Link>

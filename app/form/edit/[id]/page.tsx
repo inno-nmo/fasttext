@@ -43,7 +43,7 @@ export default async function Page({ params }: { params: { id: string } }) {
             }
         }
     })
-    if(!doc || doc.status.length == 0 || doc.status[0].name != "เอกสารส่งคืน/ตีกลับ" || doc.user.id != session.pea.id ){
+    if(!doc || doc.status.length == 0 || doc.status[0].name != "เอกสารส่งคืน/แก้ไข" || doc.user.id != session.pea.id ){
         redirect("/")
     }
     return(

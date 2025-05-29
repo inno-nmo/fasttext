@@ -40,7 +40,7 @@ export default async function Page() {
         <p className="text-4xl mr-4">📤</p>
         <div>
           <div className="text-left">
-            <h2 className="text-lg font-bold">เอกสารส่งคืน/ตีกลับ</h2>
+            <h2 className="text-lg font-bold">เอกสารส่งคืน/แก้ไข</h2>
             <p>จำนวน {typeDocsCount.returnedDocs} ฉบับ</p>
           </div>
         </div>
@@ -128,7 +128,7 @@ async function getTypeDocsCount(id: string) {
             returnedDocs: [
               {
                 $match: {
-                  name: "เอกสารส่งคืน/ตีกลับ",
+                  name: "เอกสารส่งคืน/แก้ไข",
                 },
               },
               {
