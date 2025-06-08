@@ -41,7 +41,7 @@ const formLinks = [
 export default async function Home() {
   const session = await getServerSession(authOptions);
   if (!session || !session.pea) {
-    redirect("/user/profile");
+    redirect("/user/in");
   }
 
   return (

@@ -20,7 +20,7 @@ export async function changeStatus(preverse:{err:boolean,message:string},formDat
     }
     const session = await getServerSession(authOptions)
     if(!session || !session.pea){
-        redirect ("/user/profile")
+        redirect ("/user/in")
     }
 
     if(!['admin','checker'].includes(session.pea.role)){
@@ -84,7 +84,7 @@ export async function changeStatus(preverse:{err:boolean,message:string},formDat
 export async function deleteStatus(statusId:string) {
     const session = await getServerSession(authOptions)
     if(!session || !session.pea){
-        redirect ("/user/profile")
+        redirect ("/user/in")
     }
 
     if(!['admin','checker'].includes(session.pea.role)){

@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { type: string } }){
     
     const session = await getServerSession(authOptions)
     if(!session){
-        redirect("/user/profile")
+        redirect("/user/in")
     }
 
     // const sections = await prisma.section.findMany()

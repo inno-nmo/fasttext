@@ -7,7 +7,7 @@ import SearchDocs from "./search-form";
 export default async function Page() {
   const session = await getServerSession(authOptions);
   if (!session || !session.pea) {
-    redirect("/user/profile");
+    redirect("/user/in");
   }
 
   

@@ -20,7 +20,7 @@ export async function changeProfile(prevState: {message: string, err: boolean}, 
         }
         const session = await getServerSession(authOptions)
         if(!session || !session.pea){
-            redirect("/user/profile")
+            redirect("/user/in")
         }
         const updateUser = await prisma.user.update({
             where: {
@@ -56,7 +56,7 @@ export async function changePassword(prevState: {message: string, err: boolean},
 
         const session = await getServerSession(authOptions)
         if(!session || !session.pea){
-            redirect("/user/profile")
+            redirect("/user/in")
         }
         const user = await prisma.user.findFirst({
             where: {

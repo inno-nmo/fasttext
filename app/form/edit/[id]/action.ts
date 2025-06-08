@@ -9,7 +9,7 @@ import { redirect } from "next/navigation"
 export async function editDocument(prevState: {message: string, err: boolean}, formData: FormData) {
     const session = await getServerSession(authOptions)
   if(!session || !session.pea){
-      redirect("/user/profile")
+      redirect("/user/in")
   }
 
   const id = formData.get("id")?.toString()
